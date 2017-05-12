@@ -5,6 +5,10 @@ A telegram bot specialized in communicating with young students from UnB.
 
 Mighty students from IEEE Computer Society UnB, allied with the Majestic alumni from Psychology, are building the All Divine UnBotChat (or UnBot for some). So far, we're using Python 3 (we have to deal with lots and lots of accentuations) and NLTK for natural language processing. We'll probably use TensorFlow for machine learning.
 
+# Conteudo das aulas
+
+1 - Limpando strings, tokenization, stemming, lemmatization, stop word e rare word removal. 
+
 # Timeline
 
 - 13/05/2017 - First developer meeting
