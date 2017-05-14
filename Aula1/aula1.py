@@ -11,22 +11,23 @@ textoSeparado = texto.replace('!', '.').replace('?', '?.').split('. ')
 
 # separar em frases.
 frases = tokenize.sent_tokenize(texto)
-print(frases)
+#print(textoSeparado)
+#print(frases)
 
 #Printa um exemplo em português do Machado de Assis
 #print(machado.raw('romance/marm05.txt'))
 
 # separar em palavras
 tokens = nltk.word_tokenize(texto)
-print(tokens)
+#print(tokens)
 
 #descobrir a frequencia das palavras
-frequencia = nltk.FreqDist(frases)
-print(frequencia)
+frequencia = nltk.FreqDist(tokens)
+#print(frequencia)
 
 # Part Of Speech Tagging
 classes = nltk.pos_tag(tokens)
 #print(classes)
-
+#print(nltk.help.upenn_tagset())
 stopwords = nltk.corpus.stopwords.words('portuguese')
-#print(stopwords)
+print(stopwords)

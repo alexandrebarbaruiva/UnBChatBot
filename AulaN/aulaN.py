@@ -1,4 +1,5 @@
 import nltk.corpus, nltk.tag, itertools
+
 brown_review_sents = nltk.corpus.brown.tagged_sents(categories=['reviews'])
 brown_lore_sents = nltk.corpus.brown.tagged_sents(categories=['lore'])
 brown_romance_sents = nltk.corpus.brown.tagged_sents(categories=['romance'])
