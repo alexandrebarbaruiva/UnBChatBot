@@ -5,8 +5,8 @@ import configparser
 import nltk
 import datetime
 
-FRASES_INTRODUTORIAS = ['bom dia', 'boa tarde', 'boa noite', 'oi', 'olá', 'ola']
-#FRASES_SOBRE_BOT =
+FRASES_INTRODUTORIAS = ['bom dia', 'boa tarde', 'boa noite', 'oi', 'olá', 'ola', '/start']
+#FRASES_SOBRE_BOT
 # ...
 VERBOS_NEUTROS = ['correr', 'comer']
 VERBOS_NEGATIVOS = ['morrer', 'matar', 'suicidar']
@@ -61,7 +61,8 @@ def onChatMessage(msg):
 
 config = configparser.ConfigParser()
 config.read_file(open('config.ini'))
+TOKEN = config['DEFAULT']['token']
 
-bot = telepot.Bot(config['DEFAULT']['token'])
+bot = telepot.Bot(TOKEN)
 bot.message_loop({'chat': onChatMessage,},
                 run_forever='Listening ...')

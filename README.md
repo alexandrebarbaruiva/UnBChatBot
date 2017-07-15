@@ -1,26 +1,35 @@
-# UnBotChat
+# UnBChatBot
 
-It's a telegram bot specialized in communicating with young students from UnB.
+## O que é?
 
-# What's going on
+É um bot para telegram especializado em comunicar com jovens estudantes da Universidade de Brasília. Tem como objetivo dar apoio ao aluno e ajudá-lo no cotidiano universitário.
 
-Mighty students from IEEE Computer Society UnB, allied with the Majestic alumni from Psychology, are building the All Divine UnBotChat (or UnBot for some). So far, we're using Python 3 (we have to deal with lots and lots of accentuations) and NLTK for natural language processing. We'll probably use TensorFlow for machine learning.
+# Mais detalhes
 
-# Workshop contents
+É um projeto de estudantes da UnB de psicologia e da IEEE Computer Society UnB para construir um chatbot voltado aos estudantes da universidade. O bot será implementado usando Python 3 e NLTK para processamento de linguagem natural.
 
+# Conhecimento útil/necessário para o projeto
 
-1 - Project overview [30 minutes]. Basics of NLTK (String cleaning, tokenization, stemming, lemmatization, stop word e rare word removal) [30 minutes]. Start prototype with searching for specific words, no use of NLTK [2 hours].
-
-Links:<br>
-https://apps.worldwritable.com/tutorials/chatbot/
-https://www.quora.com/What-is-the-best-way-to-learn-and-write-a-AI-Chat-bot
-https://spacy.io/
-https://www.tensorflow.org/get_started/get_started
-
-2 - Solving the lack of or finding a good portuguese tagger and incorporating it on the project [3 hours+].
-
+- Python 3
+- NLTK
+- REGEX
+- TDD e BDD
 
 # Timeline
 
-- 13/05/2017 - First developer meeting and Workshop.
-- 20/05/2017 - TBC.
+* [] Construir timeline!
+
+# Aprofundando
+
+Links:
+1. https://apps.worldwritable.com/tutorials/chatbot/
+2. https://www.quora.com/What-is-the-best-way-to-learn-and-write-a-AI-Chat-bot
+3. https://spacy.io/
+4. https://www.tensorflow.org/get_started/get_started
+
+# TODO
+
+* [ ] Fazer UML (2 dias)
+* [ ] Implementar behaviour tests (1 dia)
+    * [ ] Implementar TDD e contruir bot (1 mês)
+    * [ ] Finalizar implementação de bot (2 meses)
