@@ -19,7 +19,7 @@ print('Hora {:%H}'.format(horario))
 
 
 def listToRegex(lista):
-    return (r'|'.join(FRASES_INTRODUTORIAS))
+    return (r'|'.join(lista))
 
 def hasIntroduction(msg):
     result = re.match(listToRegex(FRASES_INTRODUTORIAS), msg, re.I)
