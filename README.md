@@ -19,7 +19,6 @@
 
 * [ ] Construir timeline!
 
-<<<<<<< HEAD
 ## Detalhamento dos arquivos
 
 O bot em si encontra-se na pasta ChatBot, é necessário ter um arquivo chamado config.ini com informações seguindo o modelo:
@@ -44,8 +43,6 @@ python3 ChatBot/chatbot.py
 
 * [ ] Construir timeline!
 
-=======
->>>>>>> 2b22a9646b50d0273ca0deeece1f663a8d8cb266
 ## Aprofundando
 
 Links:
@@ -60,11 +57,7 @@ Links:
 * [ ] Implementar behaviour tests (1 dia)
     * [ ] Implementar TDD e contruir bot (1 mês)
     * [ ] Finalizar implementação de bot (2 meses)
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 2b22a9646b50d0273ca0deeece1f663a8d8cb266
 ## Equipe responsável
 
 - Gerentes do projeto
