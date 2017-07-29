@@ -22,11 +22,11 @@
 ## Detalhamento dos arquivos
 
 O bot em si encontra-se na pasta ChatBot, é necessário ter um arquivo chamado config.ini com informações seguindo o modelo:
-'''
+```
 [DEFAULT]
 token=123456789:abcdefGHIjkLMnopQ2u863
 bot_username:nomedoseubot
-'''
+```
 Para mais informações, visite o site oficial do Telegram sobre bots.
 
 A pasta oldBot corresponde aos primeiros experimentos realizados com a equipe do projeto, assim como a pasta Aulas.
@@ -35,9 +35,9 @@ A pasta oldBot corresponde aos primeiros experimentos realizados com a equipe do
 
 Uma vez que se tenha o config.ini devidamente configurado e python 3.6 instalado em sua máquina, deve-se acessar o diretório do projeto no seu computador pela CLI e usar o seguinte comando
 
-'''
+```
 python3 ChatBot/chatbot.py
-'''
+```
 
 ## Timeline
 
