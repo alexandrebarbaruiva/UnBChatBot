@@ -1,15 +1,27 @@
-import unittest
+import sys
+import time
+import configparser
+import telepot
+import chats
 
-class TestUM(unittest.TestCase):
 
-    def setUp(self):
-        pass
+def onChatMessage(msg):
+    content_type, chat_type, chat_id = telepot.glance(msg)
+    print(content_type, chat_type, chat_id)
+    
+    if (content_type == 'text'):
+        botSays = chats.conversa(msg['text'])
+        if(botSays == None):
+            botSays = "Não compreendi o que você falou... Ainda não estou completo 😢"
+        bot.sendMessage(chat_id=chat_id, text=botSays)
+    else:
+        bot.sendMessage(chat_id=chat_id, text="Dá pra mandar a porra de um texto?!?")
 
-    def test_numbers_3_4(self):
-        self.assertEqual(3*4, 12)
 
-    def test_strings_a_3(self):
-        self.assertEqual('a'*3, 'aaa')
+config = configparser.ConfigParser()
+config.read_file(open('config.ini'))
 
-if __name__ == '__main__':
-    unittest.main()
+bot = telepot.Bot(config['DEFAULT']['token'])
+bot.message_loop({'chat': onChatMessage,},
+                run_forever='Listening ...')
+print('Listening ...')

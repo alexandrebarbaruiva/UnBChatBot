@@ -34,6 +34,17 @@ class TestTalks(unittest.TestCase):
         self.assertEqual(conversa('Olá! Tudo bom?'), 'Olá! Tudo sim, e contigo?')
         self.assertEqual(conversa('Bom dia! Tudo bom?'), 'Bom dia! Tudo bem, e contigo?')
 
+    def test_inicio_positivo(self):
+        self.assertEqual(conversa('Tudo sim, e contigo?'), 'Também! E aí, quais as novidades?')
+        self.assertEqual(conversa('Sim, e com você?'), 'Também! E aí, quais as novidades?')
+
+    def test_inicio_negativo(self):
+        self.assertEqual(conversa('Não, e vc?'), 'Estou bem, mas o que houve contigo? Quer conversar sobre isso?')
+
+    # def test_brincar(self):
+    #     self.assertEqual(conversa('O que você sabe fazer?'), 'Muitas coisas! Conversar, jogar, etc.')
+    #     self.assertEqual(conversa('Que jogos?'), 'Adivinhar o número, quer jogar?')
+
 
     # def test_iniciador_de_conversas(self):
     #     self.assertEqual()
