@@ -4,22 +4,22 @@
 
 É um bot para telegram especializado em comunicar com jovens estudantes da Universidade de Brasília. Tem como objetivo dar apoio ao aluno e ajudá-lo no cotidiano universitário.
 
-# Mais detalhes
+## Mais detalhes
 
 É um projeto de estudantes da UnB de psicologia e da IEEE Computer Society UnB para construir um chatbot voltado aos estudantes da universidade. O bot será implementado usando Python 3 e NLTK para processamento de linguagem natural.
 
-# Conhecimento útil/necessário para o projeto
+## Conhecimento útil/necessário para o projeto
 
 - Python 3
 - NLTK
 - REGEX
 - TDD e BDD
 
-# Timeline
+## Timeline
 
-* [] Construir timeline!
+* [ ] Construir timeline!
 
-# Aprofundando
+## Aprofundando
 
 Links:
 1. https://apps.worldwritable.com/tutorials/chatbot/
@@ -27,9 +27,21 @@ Links:
 3. https://spacy.io/
 4. https://www.tensorflow.org/get_started/get_started
 
-# TODO
+## TODO
 
 * [ ] Fazer UML (2 dias)
 * [ ] Implementar behaviour tests (1 dia)
     * [ ] Implementar TDD e contruir bot (1 mês)
     * [ ] Finalizar implementação de bot (2 meses)
+    
+## Equipe responsável
+
+- Gerentes do projeto
+  - Alexandre Augusto de Sá dos Santos
+    - E-mail: lexander.santos@gmail.com
+    - GitHub: [alexandrebarbaruiva] (https://github.com/alexandrebarbaruiva)
+  - Talitha Pumar Antunes
+    - E-mail: tapumar@gmail.com
+    - GitHub: [tapumar](https://github.com/tapumar)
+  - Larissa Akemi Valença Mizuno
+    - E-mail: lavmizuno@gmail.com
