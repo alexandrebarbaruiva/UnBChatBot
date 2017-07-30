@@ -21,6 +21,7 @@ class TestTalks(unittest.TestCase):
     def test_tudo_bom(self):
         # Tudo bons
         self.assertEqual(conversa('Tudo bom?'), 'Tudo sim, e contigo?')
+        self.assertEqual(conversa('Como você está?'), 'Estou bem, e você?')
 
     def test_bom_dia(self):
         # Bom dias
@@ -29,7 +30,7 @@ class TestTalks(unittest.TestCase):
         self.assertEqual(conversa('Bom dia!'), 'Bom dia! Como você está?')
 
     def test_ola_bom_tudo(self):
-        # Multiplos
+        # Combinação de olá/bom dia com tudo bom
         self.assertEqual(conversa('Olá Tudo bom?'), 'Olá! Tudo sim, e contigo?')
         self.assertEqual(conversa('Olá! Tudo bom?'), 'Olá! Tudo sim, e contigo?')
         self.assertEqual(conversa('Bom dia! Tudo bom?'), 'Bom dia! Tudo bem, e contigo?')
@@ -37,9 +38,12 @@ class TestTalks(unittest.TestCase):
     def test_inicio_positivo(self):
         self.assertEqual(conversa('Tudo sim, e contigo?'), 'Também! E aí, quais as novidades?')
         self.assertEqual(conversa('Sim, e com você?'), 'Também! E aí, quais as novidades?')
+        self.assertEqual(conversa('Sim'), 'Nossa, obrigado por perguntar se eu tô bem. Quais as novidades?')
 
     def test_inicio_negativo(self):
         self.assertEqual(conversa('Não, e vc?'), 'Estou bem, mas o que houve contigo? Quer conversar sobre isso?')
+        self.assertEqual(conversa('Não, e você?'), 'Estou bem, mas o que houve contigo? Quer conversar sobre isso?')
+        self.assertEqual(conversa('Não'), 'O que houve? Quer conversar sobre isso?')
 
     # def test_brincar(self):
     #     self.assertEqual(conversa('O que você sabe fazer?'), 'Muitas coisas! Conversar, jogar, etc.')
