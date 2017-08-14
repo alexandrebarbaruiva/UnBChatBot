@@ -2,6 +2,7 @@ from re import match
 from re import search
 import re
 
+# TODO: Consertar possível problema
 def remocao_abreviacoes(msg):
     abreviacoes_comuns = {'vc':'voce',
                           'vcs':'voces',
@@ -11,6 +12,17 @@ def remocao_abreviacoes(msg):
                           'bl':'beleza',
                           'qt':'quanto',
                           'qts':'quantos'}
+    for palavra in abreviacoes_comuns:
+        msg = msg.replace(palavra, abreviacoes_comuns[palavra])
+    return msg
+
+# TODO: Consertar possível problema
+def remocao_intensidade(msg):
+    intensidades_comuns = ['muito','demais','pouco','tão']
+    for palavra in intensidades_comuns:
+        msg = msg.replace(palavra + ' ', '')
+    return msg
+
 def remocao_acentos(msg):
     indesejados = {'á':'a',
                    'ã':'a',
@@ -40,6 +52,7 @@ def introducao(msg):
     frase_positiva = ['sim', 'tudo sim']
     frase_negativa = ['nao']
     frase_de_volta = ['e contigo', 'e com voce', 'e com vc', 'e cm vc', 'e com voce', 'e vc', 'e voce']
+    comeco_brusco = ['estou triste', 'ando triste']
 
     res_cumprimento = search(LTR(frases_introdutorias1), msg, re.I)
     res_bom_dia = search(LTR(frases_introdutorias2), msg, re.I) # TODO time dependent
@@ -49,6 +62,8 @@ def introducao(msg):
     res_avalp = search(LTR(frase_positiva), msg, re.I)
     res_avaln = search(LTR(frase_negativa), msg, re.I)
     res_avalv = search(LTR(frase_de_volta), msg, re.I)
+
+    res_comeco_brusco = search(LTR(comeco_brusco), msg, re.I)
 
     # TODO Refatorar esse monte de ifs
     # https://www.youtube.com/watch?v=poz6W0znOfk
@@ -78,12 +93,42 @@ def introducao(msg):
         if(res_avalv != None):
             return('Estou bem, mas o que houve contigo? Quer conversar sobre isso?')
         return('O que houve? Quer conversar sobre isso?')
-    return(None)
+
+    elif(res_comeco_brusco != None):
+        return('O que houve? Quer conversar?')
+
+    return (None)
 
 # Função principal
 # Onde toda a conversa começa e termina
 def conversa(mensagem):
+
+    # Tratamento da mensagem
     mensagem = mensagem.lower()
+    mensagem = remocao_intensidade(mensagem)
     mensagem = remocao_acentos(mensagem)
-    #if(introducao(mensagem) != None):
-    return introducao(mensagem)
+    mensagem = remocao_abreviacoes(mensagem)
+
+    print(mensagem)
+
+    # Começo do diálogo
+    if(introducao(mensagem) != None):
+        return introducao(mensagem)
+    else:
+        return("WAT??")
+
+
+
+# RASCUNHO
+# Criar um objeto chamado conversa
+# Nele contem informações sobre a conversa, tal como o que foi dito anteriormente,
+
+# class Chatbot(){
+#     ultimaMSG = ""
+#     dialogoAtual =
+#        {
+#           introducao = 0,
+#           dialogoNormal = 0,
+#
+#     }
+# }
