@@ -33,10 +33,15 @@ A pasta oldBot corresponde aos primeiros experimentos realizados com a equipe do
 
 ## Como fazer o bot funcionar
 
+### Requisitos
+
+- [Python 3.6+] (https://www.python.org/downloads/)
+- [Telepot] (https://github.com/nickoala/telepot)
+
 Uma vez que se tenha o config.ini devidamente configurado e python 3.6 instalado em sua máquina, deve-se acessar o diretório do projeto no seu computador pela CLI e usar o seguinte comando
 
 ```
-python3 ChatBot/chatbot.py
+make
 ```
 
 ## Timeline
@@ -69,3 +74,7 @@ Links:
     - GitHub: [tapumar](https://github.com/tapumar)
   - Larissa Akemi Valença Mizuno
     - E-mail: lavmizuno@gmail.com
+
+## Quer ajudar?
+
+Caso você tenha interesse em contribuir mais diretamente com o projeto ou possui conhecimento de grande valia e deseja transmití-lo, entre em contato com um dos gerentes do projeto <3

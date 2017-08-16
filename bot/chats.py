@@ -2,7 +2,6 @@ from re import match
 from re import search
 import re
 
-# TODO: Consertar possível problema
 def remocao_abreviacoes(msg):
     abreviacoes_comuns = {'vc':'voce',
                           'vcs':'voces',
@@ -11,16 +10,18 @@ def remocao_abreviacoes(msg):
                           'blz':'beleza',
                           'bl':'beleza',
                           'qt':'quanto',
-                          'qts':'quantos'}
+                          'qts':'quantos',
+                          'cm':'com'}
     for palavra in abreviacoes_comuns:
-        msg = msg.replace(palavra, abreviacoes_comuns[palavra])
+        msg = msg.replace((' ' + palavra), ' ' + abreviacoes_comuns[palavra])
+        msg = msg.replace((palavra + ' '), abreviacoes_comuns[palavra] + ' ')
     return msg
 
-# TODO: Consertar possível problema
 def remocao_intensidade(msg):
     intensidades_comuns = ['muito','demais','pouco','tão']
     for palavra in intensidades_comuns:
-        msg = msg.replace(palavra + ' ', '')
+        msg = msg.replace((' ' + palavra), '')
+        msg = msg.replace((palavra + ' '), '')
     return msg
 
 def remocao_acentos(msg):
@@ -40,61 +41,62 @@ def remocao_acentos(msg):
         msg = msg.replace(letra, indesejados[letra])
     return msg
 
+def formatarMensagem(mensagem):
+    mensagem = mensagem.lower()
+    mensagem = remocao_intensidade(mensagem)
+    mensagem = remocao_acentos(mensagem)
+    mensagem = remocao_abreviacoes(mensagem)
+    return mensagem
+
 # List to Regex
 def LTR(lista):
     return(r'|'.join(lista))
+
+def verifica(frases, msg):
+    return search(LTR(frases), msg, re.I)
 
 def introducao(msg):
     frases_introdutorias1 = ['oi', 'ola']
     frases_introdutorias2 = ['bom dia', 'boa tarde', 'boa noite']
     frases_introdutorias3 = ['tudo bom', 'tudo bem']
-    frases_introdutorias4 = ['como voce esta', 'como vc esta', 'voce esta bem', 'vc esta bem']
-    frase_positiva = ['sim', 'tudo sim']
+    frases_introdutorias4 = ['como voce esta', 'voce esta bem']
+    frase_positiva = ['sim', 'tudo sim', 'tudo']
     frase_negativa = ['nao']
-    frase_de_volta = ['e contigo', 'e com voce', 'e com vc', 'e cm vc', 'e com voce', 'e vc', 'e voce']
+    frase_de_volta = ['e contigo', 'e com voce', 'e com voce', 'e voce']
     comeco_brusco = ['estou triste', 'ando triste']
 
-    res_cumprimento = search(LTR(frases_introdutorias1), msg, re.I)
-    res_bom_dia = search(LTR(frases_introdutorias2), msg, re.I) # TODO time dependent
-    res_tudo_bom1 = search(LTR(frases_introdutorias3), msg, re.I)
-    res_tudo_bom2 = search(LTR(frases_introdutorias4), msg, re.I)
-
-    res_avalp = search(LTR(frase_positiva), msg, re.I)
-    res_avaln = search(LTR(frase_negativa), msg, re.I)
-    res_avalv = search(LTR(frase_de_volta), msg, re.I)
-
-    res_comeco_brusco = search(LTR(comeco_brusco), msg, re.I)
+    res_bom_dia = verifica(frases_introdutorias2, msg) # TODO time dependent
 
     # TODO Refatorar esse monte de ifs
     # https://www.youtube.com/watch?v=poz6W0znOfk
-    if(res_cumprimento != None):
-        if(res_tudo_bom1 != None):
+    if(verifica(frases_introdutorias1, msg) != None):
+        if(verifica(frases_introdutorias3, msg) != None):
             return('Olá! Tudo sim, e contigo?')
         return('Olá! Tudo bom?')
 
     elif(res_bom_dia != None):
-        if(res_tudo_bom1 != None):
+        if(verifica(frases_introdutorias3, msg) != None):
             return('Bom dia! Tudo bem, e contigo?')
-        elif(res_tudo_bom2 != None):
+        elif(verifica(frases_introdutorias4, msg) != None):
             return('Bom dia! Estou bem, e você?')
         return('Bom dia! Como você está?')
 
-    elif(res_tudo_bom1 != None):
+    elif(verifica(frases_introdutorias3, msg) != None):
         return('Tudo sim, e contigo?')
-    elif(res_tudo_bom2 != None):
+    elif(verifica(frases_introdutorias4, msg) != None):
         return('Estou bem, e você?')
 
-    elif(res_avalp != None):
-        if(res_avalv != None):
+    elif(verifica(frase_positiva, msg) != None):
+        if(verifica(frase_de_volta, msg) != None):
             return('Também! E aí, quais as novidades?')
         return('Nossa, obrigado por perguntar se eu tô bem. Quais as novidades?')
 
-    elif(res_avaln != None):
-        if(res_avalv != None):
+    elif(verifica(frase_negativa, msg) != None):
+        if(verifica(frase_de_volta, msg) != None):
             return('Estou bem, mas o que houve contigo? Quer conversar sobre isso?')
         return('O que houve? Quer conversar sobre isso?')
 
-    elif(res_comeco_brusco != None):
+    elif(verifica(comeco_brusco, msg) != None):
         return('O que houve? Quer conversar?')
 
     return (None)
@@ -104,22 +106,16 @@ def introducao(msg):
 def conversa(mensagem):
 
     # Tratamento da mensagem
-    mensagem = mensagem.lower()
-    mensagem = remocao_intensidade(mensagem)
-    mensagem = remocao_acentos(mensagem)
-    mensagem = remocao_abreviacoes(mensagem)
-
+    mensagem = formatarMensagem(mensagem)
     print(mensagem)
 
     # Começo do diálogo
     if(introducao(mensagem) != None):
         return introducao(mensagem)
-    else:
-        return("WAT??")
 
 
 
-# RASCUNHO
+# FIXME/REWORK
 # Criar um objeto chamado conversa
 # Nele contem informações sobre a conversa, tal como o que foi dito anteriormente,
 
