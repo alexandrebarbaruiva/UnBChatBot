@@ -21,7 +21,7 @@
 
 ## Detalhamento dos arquivos
 
-O bot em si encontra-se na pasta ChatBot, é necessário ter um arquivo chamado config.ini com informações seguindo o modelo:
+O bot em si encontra-se na pasta bot, é necessário ter um arquivo chamado config.ini com informações seguindo o modelo:
 ```
 [DEFAULT]
 token=123456789:abcdefGHIjkLMnopQ2u863

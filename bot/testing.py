@@ -67,9 +67,12 @@ class TestTalks(unittest.TestCase):
     #     self.assertEqual(conversa('Estou feliz'),'Maravilha! Compartilhe essa felicidade comigo')
     #     self.assertEqual(conversa(''),'')
 
+    def test_conversa_inteira(self):
+        self.assertEqual(conversa('oi'), 'Olá! Tudo bom?')
+        self.assertEqual(conversa('d boa, e tu?'), 'Também! E aí, quais as novidades?')
+        self.assertEqual(conversa('nada d mais, só entendiado'), 'Te entendo, também estou cansado de uns e zeros... De qualquer forma, quer conversar sobre alguma coisa específica?')
+        self.assertEqual(conversa('sim, eu to puto com o meu gato, ele mijou nas minhas coisas!'), 'Eita! Mas gatos costumam fazer isso, não?')
 
-    # def test_iniciador_de_conversas(self):
-    #     self.assertEqual()
 
 if __name__ == '__main__':
     unittest.main()

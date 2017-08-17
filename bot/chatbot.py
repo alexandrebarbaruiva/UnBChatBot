@@ -17,7 +17,7 @@ def onChatMessage(msg):
         if(msg['text'] == '/start'):
             botSays = 'Olá, eu sou o UnBChatBot, estou aqui para aqueles momentos que você quiser conversar!'
         else:
-            botSays = chats.conversa(msg['text'])
+            botSays = chats.conversa(msg['text'], chat_id)
             if(botSays == None and msg['text'] != 'a'):
                 botSays = "Não compreendi o que você falou... Ainda não estou completo 😢"
         bot.sendMessage(chat_id=chat_id, text=botSays)
