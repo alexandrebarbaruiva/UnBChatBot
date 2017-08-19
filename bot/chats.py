@@ -56,7 +56,7 @@ def verifica(frases, msg):
     return search(LTR(frases), msg, re.I)
 
 def introducao(msg):
-    frases_introdutorias1 = ['oi', 'ola']
+    frases_introdutorias1 = ['oi', 'ola', 'hello']
     frases_introdutorias2 = ['bom dia', 'boa tarde', 'boa noite']
     frases_introdutorias3 = ['tudo bom', 'tudo bem']
     frases_introdutorias4 = ['como voce esta', 'voce esta bem']
@@ -103,7 +103,10 @@ def introducao(msg):
 
 # Função principal
 # Onde toda a conversa começa e termina
+
+# def conversa(mensagem, id)
 def conversa(mensagem):
+    # verifica conversa anterior com id para continuar conversa
 
     # Tratamento da mensagem
     mensagem = formatarMensagem(mensagem)
