@@ -48,6 +48,17 @@ make
 
 * [ ] Construir timeline!
 
+## Features a serem desenvolvidas
+
+* [ ] Algoritmos para análise de sentimento (ver mandala de sentimentos)
+* [ ] Implementar brincadeira de adivinhar número
+* [ ] Implementar algoritmo para mostrar sites relacionados a assuntos de interesse ao leitor
+* [ ] Função para mostrar instituições especializadas em problemas variados
+
+OPT:
+* [ ] Mostrar sites/artigos/etc que expliquem técnicas para aumentar a produtividade do estudante
+* [ ] Mesmo vale para vida pessoal e financeira.
+
 ## Aprofundando
 
 Links:

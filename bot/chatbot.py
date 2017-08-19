@@ -13,14 +13,16 @@ def onChatMessage(msg):
     # print(content_type, chat_type, chat_id)
 
     if (content_type == 'text'):
-        print(msg['text'])
-        if(msg['text'] == '/start'):
-            botSays = 'Olá, eu sou o UnBChatBot, estou aqui para aqueles momentos que você quiser conversar!'
-        else:
-            botSays = chats.conversa(msg['text'], chat_id)
-            if(botSays == None and msg['text'] != 'a'):
-                botSays = "Não compreendi o que você falou... Ainda não estou completo 😢"
-        bot.sendMessage(chat_id=chat_id, text=botSays)
+        with open('users.json') as user:
+            intents = json.load(json_data)
+            print(msg['text'])
+            if(msg['text'] == '/start'):
+                botSays = 'Olá, eu sou o UnBChatBot, estou aqui para aqueles momentos que você quiser conversar!'
+            else:
+                botSays = chats.conversa(msg['text'], chat_id)
+                if(botSays == None and msg['text'] != 'a'):
+                    botSays = "Não compreendi o que você falou... Ainda não estou completo 😢"
+            bot.sendMessage(chat_id=chat_id, text=botSays)
     else:
         bot.sendMessage(chat_id=chat_id, text="Dá pra mandar a porra de um texto?!?")
 
