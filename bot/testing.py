@@ -58,13 +58,20 @@ class TestTalks(unittest.TestCase):
     def test_dialogo_desabafo(self):
         # self.assertEqual(conversa(''), 'Que?')
         def test_morte_familia(self):
-            self.assertEqual(conversa(''), '')
+            self.assertEqual(conversa('Perdi um familiar.'), '')
+            
         def test_problema_familiar(self):
-            self.assertEqual(conversa(''), 'Que?')
+            self.assertEqual(conversa('Tenho um familiar com problemas'), 'Que?')
+            
         def test_problema_academico(self):
-            self.assertEqual(conversa(''))
+            self.assertEqual(conversa('Meu IRA tá negativo D:'))
+            self.assertEqual(conversa('Meu IRA está baixo D:'))
+            self.assertEqual(conversa('Não estou aguentando a rotina da UnB'))
+            
         def test_problema_financeiro(self):
-            self.assertEqual(conversa(''))
+            self.assertEqual(conversa('Estou com problemas financeiros'))
+            self.assertEqual(conversa('Não consigo pagar minhas contas'))
+            self.assertEqual(conversa('Fui demitido do estágio'))
         
     def test_final_dialogo(self):
         self.assertEqual(conversa('Preciso ir'), 'Ok, foi bom conversar com você!')
