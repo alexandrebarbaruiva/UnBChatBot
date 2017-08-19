@@ -54,6 +54,7 @@ make
 * [ ] Implementar brincadeira de adivinhar número
 * [ ] Implementar algoritmo para mostrar sites relacionados a assuntos de interesse ao leitor
 * [ ] Função para mostrar instituições especializadas em problemas variados
+* [ ] Função para usuário usar bot como diário de sentimentos
 
 OPT:
 * [ ] Mostrar sites/artigos/etc que expliquem técnicas para aumentar a produtividade do estudante
@@ -82,7 +83,7 @@ Links:
     - GitHub: [alexandrebarbaruiva] (https://github.com/alexandrebarbaruiva)
   - Talitha Pumar Antunes
     - E-mail: tapumar@gmail.com
-    - GitHub: [tapumar](https://github.com/tapumar)
+    - GitHub: [tapumar] (https://github.com/tapumar)
   - Larissa Akemi Valença Mizuno
     - E-mail: lavmizuno@gmail.com
 

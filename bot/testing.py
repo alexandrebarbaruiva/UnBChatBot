@@ -6,6 +6,8 @@ class TestTalks(unittest.TestCase):
 
     # Faz nada, é só para ver se está tudo funcionando
     def test_if_works(self):
+        def test_nesting(self):
+            pass
         pass
 
     # Teste dos primeiros diálogos
@@ -40,6 +42,7 @@ class TestTalks(unittest.TestCase):
         self.assertEqual(conversa('Bom dia! Tudo bom?'), 'Bom dia! Tudo bem, e contigo?')
 
     def test_inicio_positivo(self):
+        # Resposta positiva de tudo bom com pergunta pra iniciar conversa
         self.assertEqual(conversa('Tudo sim, e contigo?'), 'Também! E aí, quais as novidades?')
         self.assertEqual(conversa('Tudo, e contigo?'), 'Também! E aí, quais as novidades?')
         self.assertEqual(conversa('Tudo, e você?'), 'Também! E aí, quais as novidades?')
@@ -47,10 +50,28 @@ class TestTalks(unittest.TestCase):
         self.assertEqual(conversa('Sim'), 'Nossa, obrigado por perguntar se eu tô bem. Quais as novidades?')
 
     def test_inicio_negativo(self):
+        # Resposta negativa de tudo bom com pergunta pra iniciar conversa
         self.assertEqual(conversa('Não, e vc?'), 'Estou bem, mas o que houve contigo? Quer conversar sobre isso?')
         self.assertEqual(conversa('Não, e você?'), 'Estou bem, mas o que houve contigo? Quer conversar sobre isso?')
         self.assertEqual(conversa('Não'), 'O que houve? Quer conversar sobre isso?')
-
+        
+    def test_dialogo_desabafo(self):
+        # self.assertEqual(conversa(''), 'Que?')
+        def test_morte_familia(self):
+            self.assertEqual(conversa(''), '')
+        def test_problema_familiar(self):
+            self.assertEqual(conversa(''), 'Que?')
+        def test_problema_academico(self):
+            self.assertEqual(conversa(''))
+        def test_problema_financeiro(self):
+            self.assertEqual(conversa(''))
+        
+    def test_final_dialogo(self):
+        self.assertEqual(conversa('Preciso ir'), 'Ok, foi bom conversar com você!')
+        self.assertEqual(conversa('Tchau'), 'Até mais!')
+        self.assertEqual(conversa('Bye'), 'Até mais!')
+    
+    # TESTAR MAIS TARDE
     # def test_brincar(self):
     #     self.assertEqual(conversa('O que você sabe fazer?'), 'Muitas coisas! Conversar, jogar, etc.')
     #     self.assertEqual(conversa('Que jogos?'), 'Adivinhar o número, quer jogar?')

@@ -10,8 +10,10 @@ def remocao_abreviacoes(msg):
                           'blz':'beleza',
                           'bl':'beleza',
                           'qt':'quanto',
+                          'qnt':'quanto',
                           'qts':'quantos',
-                          'cm':'com'}
+                          'cm':'com',
+                          'qnd':'quando'}
     for palavra in abreviacoes_comuns:
         msg = msg.replace((' ' + palavra), ' ' + abreviacoes_comuns[palavra])
         msg = msg.replace((palavra + ' '), abreviacoes_comuns[palavra] + ' ')
@@ -100,11 +102,21 @@ def introducao(msg):
         return('O que houve? Quer conversar?')
 
     return (None)
+  
+def finalizacao(msg):
+    finaliza1 = ['preciso ir', 'tenho de ir']
+    finaliza2 = ['tchau','falou','bye','valeu']
+  
+    if(verifica(finaliza1, msg) != None):
+        return('Ok, foi bom conversar com você!')
+    elif(verifica(finaliza2, msg) != None):
+        return('Até mais!')
+    
+  
 
 # Função principal
 # Onde toda a conversa começa e termina
-
-# def conversa(mensagem, id)
+# def conversa(mensagem, id) //Mudar para receber id da pessoa que está falando e retomar conversa
 def conversa(mensagem):
     # verifica conversa anterior com id para continuar conversa
 
@@ -115,6 +127,8 @@ def conversa(mensagem):
     # Começo do diálogo
     if(introducao(mensagem) != None):
         return introducao(mensagem)
+    elif(finalizacao(mensagem) != None):
+        return finalizacao(mensagem)
 
 
 
