@@ -15,9 +15,14 @@
 - REGEX
 - TDD e BDD
 
-## Timeline
+## Frequência de atualizações
 
-* [ ] Construir timeline!
+Todo sábado durante 2h ou 4h há implementação de novas funcionalidades ou melhorias
+
+## Deadlines
+
+* [ ] Apresentação bot para professores do CIC (13/9)
+* [ ] Banco de dados e JSON funcionando (26/8)
 
 ## Detalhamento dos arquivos
 
