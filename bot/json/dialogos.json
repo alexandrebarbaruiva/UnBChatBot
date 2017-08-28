@@ -1,4 +1,4 @@
-{"dialogues": [
+{"dialogos": [
         {"tag": "introducao1",
          "usuario": ["oi", "ola", "hello"],
          "resposta": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
