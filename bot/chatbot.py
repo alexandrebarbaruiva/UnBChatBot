@@ -4,6 +4,7 @@ import configparser
 import telepot
 import chats
 from pprint import pprint
+from chatbotDAO import DataHandler as db
 
 lastMessage = ''
 
@@ -13,8 +14,8 @@ def onChatMessage(msg):
     # print(content_type, chat_type, chat_id)
 
     if (content_type == 'text'):
-        with open('users.json') as user:
-            intents = json.load(json_data)
+            # TODO: implement call user last message
+            
             print(msg['text'])
             if(msg['text'] == '/start'):
                 botSays = 'Olá, eu sou o UnBChatBot, estou aqui para aqueles momentos que você quiser conversar!'
@@ -31,7 +32,7 @@ def onChatMessage(msg):
 
 
 config = configparser.ConfigParser()
-config.read_file(open('config.ini'))
+config.read_file(open('../config.ini'))
 
 bot = telepot.Bot(config['DEFAULT']['token'])
 bot.message_loop({'chat': onChatMessage},

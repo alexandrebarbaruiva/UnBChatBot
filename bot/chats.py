@@ -1,48 +1,41 @@
 from re import match
 from re import search
 import re
-
-def remocao_abreviacoes(msg):
-    abreviacoes_comuns = {'vc':'voce',
-                          'vcs':'voces',
-                          'gnt':'gente',
-                          'gnts':'gente',
-                          'blz':'beleza',
-                          'bl':'beleza',
-                          'qt':'quanto',
-                          'qnt':'quanto',
-                          'qts':'quantos',
-                          'cm':'com',
-                          'qnd':'quando'}
-    for palavra in abreviacoes_comuns:
-        msg = msg.replace((' ' + palavra), ' ' + abreviacoes_comuns[palavra])
-        msg = msg.replace((palavra + ' '), abreviacoes_comuns[palavra] + ' ')
-    return msg
+import json
+import os
 
 def remocao_intensidade(msg):
-    intensidades_comuns = ['muito','demais','pouco','tão']
-    for palavra in intensidades_comuns:
-        msg = msg.replace((' ' + palavra), '')
-        msg = msg.replace((palavra + ' '), '')
-    return msg
-
+    try:
+        with open('bot/json/adverbios.json', 'r') as arquivo:
+            intensidades_comuns = json.load(arquivo)
+            for palavra in intensidades_comuns:
+                msg = msg.replace((' ' + palavra), '')
+                msg = msg.replace((palavra + ' '), '')
+            return msg
+    except:
+        print("adverbios.json não encontrado.")
+        
 def remocao_acentos(msg):
-    indesejados = {'á':'a',
-                   'ã':'a',
-                   'à':'a',
-                   'â':'a',
-                   'é':'e',
-                   'ê':'e',
-                   'í':'i',
-                   'ì':'i',
-                   'ó':'o',
-                   'õ':'o',
-                   'ô':'o',
-                   'ú':'u'}
-    for letra in indesejados:
-        msg = msg.replace(letra, indesejados[letra])
-    return msg
-
+    try:
+        with open('bot/json/acentuacao.json', 'r') as arquivo:
+            indesejados = json.load(arquivo)
+            for palavra in indesejados:
+                msg = msg.replace(letra, indesejados[letra])
+            return msg
+    except:
+        print("acentuacao.json não encontrado.")
+        
+def remocao_abreviacoes(msg):
+    try:
+        with open('bot/json/abreviacoes.json', 'r') as arquivo:
+            abreviacoes_comuns = json.load(arquivo)
+            for palavra in abreviacoes_comuns:
+                msg = msg.replace((' ' + palavra), ' ' + abreviacoes_comuns[palavra])
+                msg = msg.replace((palavra + ' '), abreviacoes_comuns[palavra] + ' ')
+            return msg
+    except:
+        print("abreviacoes.json não encontrado.")
+        
 def formatarMensagem(mensagem):
     mensagem = mensagem.lower()
     mensagem = remocao_intensidade(mensagem)
@@ -117,9 +110,12 @@ def finalizacao(msg):
 # Função principal
 # Onde toda a conversa começa e termina
 # def conversa(mensagem, id) //Mudar para receber id da pessoa que está falando e retomar conversa
-def conversa(mensagem):
-    # verifica conversa anterior com id para continuar conversa
-
+def conversa(mensagem, idPessoa):
+    
+    # TODO verifica conversa anterior com id para continuar conversa
+    
+    # with open('json/dialogos.json', 'r') as possivelDialogo:
+    
     # Tratamento da mensagem
     mensagem = formatarMensagem(mensagem)
     print(mensagem)
